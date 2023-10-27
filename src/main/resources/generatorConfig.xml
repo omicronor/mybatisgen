@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="testTables" targetRuntime="MyBatis3">
+        <commentGenerator type="com.zxh.mybatisgen.MyCommentGenerator">
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="false" />
+        </commentGenerator>
+
+        <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://10.126.28.82:3206/groupchq?serverTimezone=Asia/Shanghai"
+                        userId="groupchq_dev" password="}fof4-NP3jG&amp;+WR/tYjg">
+        </jdbcConnection>
+        <!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 和
+            NUMERIC 类型解析为java.math.BigDecimal -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!-- targetProject:生成PO类的位置 -->
+        <javaModelGenerator targetPackage="com.cece.common.core.domain.pojo"
+                            targetProject=".\src\main\java">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false" />
+            <!-- 从数据库返回的值被清理前后的空格 -->
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+        <!-- targetProject:mapper映射文件生成的位置 -->
+        <sqlMapGenerator targetPackage="com.cece.materialMan.mapper"
+                         targetProject=".\src\main\resources">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false" />
+        </sqlMapGenerator>
+        <!-- targetPackage：mapper接口生成的位置 -->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.cece.materialMan.service"
+                             targetProject=".\src\main\java">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false" />
+        </javaClientGenerator>
+
+      <table tableName="cq_assets_appraisal_filings" domainObjectName="CqAssetsAppraisalFilings"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <columnOverride column="create_date" javaType="java.util.Date" jdbcType="datetime"/>
+            <columnOverride column="por_fddbr_date" javaType="java.util.Date" jdbcType="datetime"/>
+            <columnOverride column="por_ld_date" javaType="java.util.Date" jdbcType="datetime"/>
+            <columnOverride column="pub_pub_date" javaType="java.util.Date" jdbcType="datetime"/>
+            <columnOverride column="pub_pub_datex" javaType="java.util.Date" jdbcType="datetime"/>
+            <columnOverride column="res_appr_baseday" javaType="java.util.Date" jdbcType="datetime"/>
+            <columnOverride column="res_appr_deadline" javaType="java.util.Date" jdbcType="datetime"/>
+            <columnOverride column="por_fddbr_date" javaType="java.util.Date" jdbcType="datetime"/>
+        </table>
+        <table tableName="cq_organ_filings" domainObjectName="CqOrganFilings"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <columnOverride column="create_time" javaType="java.util.Date" jdbcType="datetime"/>
+            <columnOverride column="update_time" javaType="java.util.Date" jdbcType="datetime"/>
+        </table>
+        <!--<table tableName="IC_APPROVE" domainObjectName="Approve"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+           <columnOverride column="check_flag" javaType="java.lang.Integer" jdbcType="TINYINT"/>
+           <columnOverride column="invoice_flag" javaType="java.lang.Integer" jdbcType="TINYINT"/>
+           <columnOverride column="status" javaType="java.lang.Integer" jdbcType="TINYINT"/>
+       </table>
+
+       <table tableName="IC_ATTR" domainObjectName="Attr"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+           <columnOverride column="rebate_status" javaType="java.lang.Integer" jdbcType="TINYINT" />
+           <columnOverride column="recalculate_status" javaType="java.lang.Integer" jdbcType="TINYINT" />
+       </table>
+
+       <table tableName="IC_ATTR_PKG" domainObjectName="AttrPkg"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+           <columnOverride column="audit_operate_type" javaType="java.lang.Integer" jdbcType="TINYINT"/>
+       </table>
+
+       <table tableName="IC_ATTR_VALUE" domainObjectName="AttrValue"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+           <columnOverride column="kpi_status" javaType="java.lang.Integer" jdbcType="TINYINT"/>
+       </table>
+
+       <table tableName="IC_ATTRPKG_ATTR" domainObjectName="AttrPkgAttr"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+           <columnOverride column="kpi_status" javaType="java.lang.Integer" jdbcType="TINYINT"/>
+       </table>
+
+       <table tableName="IC_ATTRPKG_ATTRRNG" domainObjectName="AttrPkgAttrRng"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+           <columnOverride column="kpi_status" javaType="java.lang.Integer" jdbcType="TINYINT"/>
+       </table>
+
+
+       <table tableName="IC_ATTRPKG_ATTRVAL" domainObjectName="AttrPkgAttrVal"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+           <columnOverride column="store_type" javaType="java.lang.Integer" jdbcType="TINYINT"/>
+           <columnOverride column="cooperate_main_part" javaType="java.lang.Integer" jdbcType="TINYINT"/>
+       </table>
+
+       <table tableName="IC_CAT_RLT" domainObjectName="CatRlt"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+           <columnOverride column="base_data_type" javaType="java.lang.Integer" jdbcType="TINYINT"/>
+       </table>
+
+       <table tableName="IC_CMDT_BRAND" domainObjectName="CmdtBrand"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+
+       <table tableName="IC_CMDT_MODEL" domainObjectName="CmdtModel"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+
+       <table tableName="IC_CMDT_MODEL_PICTURE" domainObjectName="CmdtModelPicture"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+       <table tableName="IC_CMDTMDL_ATTR" domainObjectName="CmdtAttr"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+       <table tableName="IC_CMDTMDL_ATTRVAL" domainObjectName="CmdtModelAttrVal"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+       <table tableName="IC_CMDTMDL_SKU" domainObjectName="CmdtModelSku"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+       <table tableName="IC_CMDTMDL_SKU_GROWTH" domainObjectName="CmdtModelSkuGrowth"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+       <table tableName="IC_CMDTMDL_SKUATVL" domainObjectName="CmdtModelSkuAtvl"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+       <table tableName="IC_COLLECTION" domainObjectName="Collection"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+       <table tableName="IC_ENTITY" domainObjectName="Entity"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+       <table tableName="IC_ENTITY_ATTR" domainObjectName="EntityAttr"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+       <table tableName="IC_ENTITY_ATTRVAL" domainObjectName="EntityAttrVal"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+       <table tableName="IC_ITEM" domainObjectName="Item"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+       <table tableName="IC_ITEM_ATTR" domainObjectName="ItemAttr"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+       <table tableName="IC_ITEM_ATTR_VAL_RLT" domainObjectName="ItemAttrValRlt"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+       <table tableName="IC_ITEM_ATTR_VALUE" domainObjectName="ItemAttrValue"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+       <table tableName="IC_ITEM_DEALER_PRICE" domainObjectName="ItemDealerPrice"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+       <table tableName="IC_ITEM_HOTPIC" domainObjectName="ItemHotPic"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+       <table tableName="IC_ITEM_PICTURE" domainObjectName="ItemPicture"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+       <table tableName="IC_ITEM_PRICE_CHK" domainObjectName="ItemPriceChk"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+       <table tableName="IC_ITEM_PRICE_CHK_HIS" domainObjectName="ItemPriceChkHis"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+       <table tableName="IC_ITEM_PRICE_LABEL" domainObjectName="ItemPriceLabel"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+       <table tableName="IC_ITEM_PRICE_SALEPRICEHIS" domainObjectName="ItemPriceSalePriceHis"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+       <table tableName="IC_ITEM_PRICE_TERM" domainObjectName="ItemPriceTerm"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+       <table tableName="IC_ITEM_RANK" domainObjectName="ItemRank"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+       <table tableName="IC_ITEM_STOCK" domainObjectName="ItemStock"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+       <table tableName="IC_MALL_CAT" domainObjectName="MallCat"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+       <table tableName="IC_MALL_CAT_MDF" domainObjectName="MallCatMdf"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+       <table tableName="IC_MALLCAT_CMDTBRAND" domainObjectName="MallCatCmdtBrand"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+       <table tableName="IC_MALLCAT_PRCGRD" domainObjectName="MallCatPriceGrade"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+       <table tableName="IC_OPRT_CAT" domainObjectName="OprtCat"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+       <table tableName="IC_OPRTCAT_ATTR" domainObjectName="OprtCatAttr"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+       <table tableName="IC_OPRTCAT_ATTRVAL" domainObjectName="OprtCatAttrVal"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+       <table tableName="IC_OPRTCAT_CMDTBRAND" domainObjectName="OprtCatCmdtBrand"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+       <table tableName="IC_OPRTCAT_PRCGRD" domainObjectName="OprtCatPriceGrade"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+       <table tableName="IC_PRICE_LABEL_TERM" domainObjectName="PriceLabelTerm"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+       <table tableName="IC_RCMD_ITEM" domainObjectName="RcmdItem"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+       <table tableName="IC_RCMD_MAIN" domainObjectName="RcmdMain"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+       <table tableName="IC_RECOMMEND" domainObjectName="Recommend"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+       <table tableName="IC_SKU" domainObjectName="Sku"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+       <table tableName="IC_SKU_SPEC" domainObjectName="SkuSpec"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+       <table tableName="IC_STOCK_DISP_CFG" domainObjectName="StockDispConfig"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>
+       <table tableName="IC_TMEP_ONSALE" domainObjectName="TmepOnsale"
+              enableCountByExample="false" enableUpdateByExample="false"
+              enableDeleteByExample="false" enableSelectByExample="false"
+              selectByExampleQueryId="false">
+       </table>-->
+    </context>
+</generatorConfiguration>
